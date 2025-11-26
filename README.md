@@ -11,7 +11,7 @@ Le micro-service Customer-Service permet de gérer les clients du système. Il e
 
 **Capture d'écran - Liste des clients:**
 
-![Customer Service API](images/customer.png)
+![Customer Service API](./images/customer.png)
 
 Cette capture montre l'API REST du service Customer qui retourne la liste des clients avec leurs informations (id, nom, email). On peut observer quatre clients enregistrés : Kholoud, Anas, Imane, et Mona, chacun avec son identifiant unique et son adresse email.
 
@@ -22,7 +22,7 @@ Le micro-service Inventory-Service gère l'inventaire des produits disponibles d
 
 **Capture d'écran - Liste des produits:**
 
-![Inventory Service API](images/inventory.png)
+![Inventory Service API](./images/inventory.png)
 
 Cette capture présente l'API du service Inventory qui retourne la liste des produits en stock. On peut voir quatre produits : Computer (quantité: 10), Printer (quantité: 8), Smartphone (quantité: 12), et Smart Watch (quantité: 14). Chaque produit possède un identifiant unique UUID.
 
@@ -33,13 +33,13 @@ Mise en place d'un serveur de configuration centralisée qui gère les propriét
 
 **Capture d'écran - Configuration Application:**
 
-![Config Server - Application](images/config1.png)
+![Config Server - Application](./images/config1.png)
 
 Cette capture montre la configuration globale de l'application récupérée depuis le Config Server. On y trouve les paramètres partagés (global.params.p1=555, global.params.p2=777), la configuration Spring H2 Console, et l'URL du service Eureka. Le repository GitHub utilisé est : `https://github.com/kholoudam/config-ecom-app/application.properties`
 
 **Capture d'écran - Configuration Customer-Service:**
 
-![Config Server - Customer Service](images/config2.png)
+![Config Server - Customer Service](./images/config2.png)
 
 Cette capture affiche la configuration spécifique au Customer-Service. Elle contient deux sources de configuration : une depuis le repository customer-service.properties et une autre depuis application.properties. On y voit les paramètres spécifiques au service customer (customer.params.x=11, customer.params.y=22) ainsi que la configuration de la base de données H2.
 
@@ -50,7 +50,7 @@ Mise en place du serveur Eureka pour l'enregistrement et la découverte automati
 
 **Capture d'écran - Tableau de bord Eureka:**
 
-![Eureka Dashboard](images/eureka.png)
+![Eureka Dashboard](./images/eureka.png)
 
 Cette capture présente le tableau de bord Eureka Server qui affiche l'état du système. On peut voir :
 - **System Status:** Environment test, Uptime de 00:34, avec un seuil de renouvellement de 8
@@ -67,7 +67,7 @@ Le Billing-Service gère la facturation en combinant les données des clients (C
 
 **Capture d'écran - Détails d'une facture:**
 
-![Billing Service API](images/billing.png)
+![Billing Service API](./images/billing.png)
 
 Cette capture montre une facture complète générée par le Billing-Service. La facture (id: 1) datée du 26-11-2025 appartient au client Kholoud (customerId: 1). Elle contient la liste des articles commandés avec leurs détails complets. Par exemple, le premier article est un Computer (productId: c6821c35...) avec une quantité de 1 et un prix unitaire de 3200. Le service utilise Open Feign pour récupérer automatiquement les informations du client depuis Customer-Service et les détails des produits depuis Inventory-Service.
 
@@ -114,9 +114,3 @@ Pour démarrer le système correctement, respecter l'ordre suivant :
 4. Inventory-Service
 5. Billing-Service
 6. Gateway-Service
-
-## 👥 Auteur
-
-**Kholoudam**
-- GitHub: [@kholoudam](https://github.com/kholoudam)
-- Repository Config: [config-ecom-app](https://github.com/kholoudam/config-ecom-app)
