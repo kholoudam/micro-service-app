@@ -14,3 +14,9 @@ spring:
             - name: Path
               args:
                 pattern: /api/products/**
+        - id: r3
+          uri: lb://BILLING-SERVICE
+          predicates:
+            - name: Path
+              args:
+                pattern: /api/bills/**
