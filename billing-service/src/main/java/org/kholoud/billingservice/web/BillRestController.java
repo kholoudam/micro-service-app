@@ -6,9 +6,12 @@ import org.kholoud.billingservice.feign.ProductRestClient;
 import org.kholoud.billingservice.repository.BillRepository;
 import org.kholoud.billingservice.repository.ProductItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class BillRestController {
@@ -28,5 +31,16 @@ public class BillRestController {
             productItem.setProduct(productRestClient.getProductById(productItem.getProductId()));
         });
         return bill;
+    }
+    @GetMapping(path = "/bills")
+    public List<Bill> getAllBills() {
+        List<Bill> bills = billRepository.findAll();
+        bills.forEach(bill -> {
+            bill.setCustomer(customerRestClient.getCustomerById(bill.getCustomerId()));
+            bill.getProductItems().forEach(productItem -> {
+                productItem.setProduct(productRestClient.getProductById(productItem.getProductId()));
+            });
+        });
+        return bills;
     }
 }
